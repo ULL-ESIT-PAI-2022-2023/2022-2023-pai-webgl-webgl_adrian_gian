@@ -1,3 +1,4 @@
 # Bibliography
 
-Include in this directory all references and additional material used in your project
+- [MDN Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial)
+- [How to include shaders as external files](https://stackoverflow.com/questions/53336342/how-to-include-shaders-as-external-files)
