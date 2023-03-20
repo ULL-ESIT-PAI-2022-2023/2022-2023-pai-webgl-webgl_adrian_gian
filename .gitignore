@@ -6,10 +6,8 @@ package-lock.json
 # Dependency directory
 node_modules
 
-# JavaScript build output
-*.js
-*.js.map
-*.d.ts
+# JS generated files
+build
 
 # VSCode files
 .vscode

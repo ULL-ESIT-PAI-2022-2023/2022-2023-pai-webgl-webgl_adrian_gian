@@ -16,7 +16,7 @@
     /* Emit */
     "declaration": true,                      /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     "sourceMap": true,                        /* Create source map files for emitted JavaScript files. */
-    // "outDir": "./build",                      /* Specify an output folder for all emitted files. */
+    "outDir": "./build",                      /* Specify an output folder for all emitted files. */
     "removeComments": true,                   /* Disable emitting comments. */
 
     /* JavaScript Support */
@@ -36,6 +36,7 @@
   "exclude": [
     "node_modules/**/*",
     "jest.config.ts",
-    "docs"
+    "docs",
+    "build",
   ]
 }

@@ -1,6 +1,6 @@
 import { BufferInformation, ProgramInformation } from './types';
-import initBuffers from './init_buffers';
-import drawScene from './draw_scene';
+import initBuffers from './init_buffers.js';
+import drawScene from './draw_scene.js';
 
 /**
  * @description Initialize a shader program, so WebGL knows how to draw our data.
