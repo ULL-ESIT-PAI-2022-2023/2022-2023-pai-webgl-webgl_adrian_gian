@@ -1,18 +1,18 @@
 {
   "name": "web-gl",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/ULL-ESIT-PAI-2022-2023/2022-2023-pai-webgl-webgl_adrian_gian",
   "authors": [
     {
       "name": "Adrian Grassin Luis",
       "email": "alu0101349480@ull.edu.es",
-      "url":  "https://github.com/AdrianGrassin"
+      "url": "https://github.com/AdrianGrassin"
     },
     {
       "name": "Gian-Luis Bolivar-Diana",
       "email": "gian.diana.28@ull.edu.es",
-      "url":  "https://github.com/gianluisdiana"
+      "url": "https://github.com/gianluisdiana"
     }
   ],
   "license": "MIT",

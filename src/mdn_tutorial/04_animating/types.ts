@@ -11,6 +11,6 @@ export interface ProgramInformation {
 }
 
 export interface BufferInformation {
-  position: WebGLBuffer;
+  vertex: WebGLBuffer;
   color: WebGLBuffer;
 }

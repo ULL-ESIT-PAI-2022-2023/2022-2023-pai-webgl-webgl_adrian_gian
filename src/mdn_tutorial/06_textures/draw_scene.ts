@@ -60,7 +60,7 @@ export default function drawScene(gl: WebGLRenderingContext,
 
 
   // Tell WebGL how to pull out the positions and colors from the buffers
-  setAttribute(gl, buffers.position, programInfo.attribLocations.vertexPosition, 3);
+  setAttribute(gl, buffers.vertex, programInfo.attribLocations.vertexPosition, 3);
   setAttribute(gl, buffers.textureCoord as WebGLBuffer,
     programInfo.attribLocations.textureCoord as number, 2);
 

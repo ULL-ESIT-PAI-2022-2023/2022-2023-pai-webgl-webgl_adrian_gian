@@ -46,7 +46,7 @@ export default function drawScene(gl: WebGLRenderingContext,
   ); // axis to rotate around
 
   // Tell WebGL how to pull out the positions and colors from the buffers
-  setAttribute(gl, buffers.position, programInfo.attribLocations.vertexPosition, 2);
+  setAttribute(gl, buffers.vertex, programInfo.attribLocations.vertexPosition, 2);
   setAttribute(gl, buffers.color, programInfo.attribLocations.vertexColor, 4);
   // setPositionAttribute(gl, buffers, programInfo);
   // setColorAttribute(gl, buffers, programInfo);

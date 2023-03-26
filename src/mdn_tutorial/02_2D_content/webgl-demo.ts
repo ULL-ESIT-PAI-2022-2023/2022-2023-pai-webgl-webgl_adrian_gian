@@ -65,7 +65,7 @@ function loadShader(gl: WebGLRenderingContext, type: GLenum,
   return shader;
 }
 
-function main(): void {
+async function  main(): Promise<void> {
   const canvas: HTMLCanvasElement = document.getElementById('glcanvas') as HTMLCanvasElement;
 
   // Initialize the GL context
@@ -87,20 +87,8 @@ function main(): void {
 
   // ------------------------ Second part of the tutorial ------------------------
 
-  const vsSource = `
-  attribute vec4 aVertexPosition;
-  uniform mat4 uModelViewMatrix;
-  uniform mat4 uProjectionMatrix;
-  void main() {
-    gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-  }
-  `;
-
-  const fsSource = `
-  void main() {
-    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-  }
-  `;
+  const vsSource = await fetch("shaders/vertex.glsl").then((res) => res.text());
+  const fsSource = await fetch("shaders/fragment.glsl").then((res) => res.text());
 
   // Initialize a shader program; this is where all the lighting
   // for the vertices and so forth is established.

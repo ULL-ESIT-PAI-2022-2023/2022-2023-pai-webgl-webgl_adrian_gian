@@ -13,7 +13,7 @@ export interface ProgramInformation {
 }
 
 export interface BufferInformation {
-  position: WebGLBuffer;
+  vertex: WebGLBuffer;
   color?: WebGLBuffer;
   textureCoord?: WebGLBuffer;
   index: WebGLBuffer;

@@ -49,12 +49,12 @@ export default function drawScene(gl: WebGLRenderingContext,
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.projectionMatrix,
     false,
-    projectionMatrix
+    projectionMatrix as Float32Array
   );
   gl.uniformMatrix4fv(
     programInfo.uniformLocations.modelViewMatrix,
     false,
-    modelViewMatrix
+    modelViewMatrix as Float32Array
   );
 
   // Draw the square, with offset 0, and 4 vertices
@@ -78,7 +78,7 @@ function setPositionAttribute(gl: WebGLRenderingContext,
 
   // 0 -> use type and numComponents above
   const offset = 0; // how many bytes inside the buffer to start from
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffers.vertex);
   gl.vertexAttribPointer(
     programInfo.attribLocations.vertexPosition,
     numComponents,

@@ -1,11 +1,11 @@
 import { BufferInformation } from './types';
 
 export default function initBuffers(gl: WebGLRenderingContext): BufferInformation {
-  const position = initPositionBuffer(gl);
+  const vertex = initVertexBuffer(gl);
   const textureCoord = initTextureBuffer(gl);
   const index = initIndexBuffer(gl);
   return {
-    position,
+    vertex,
     textureCoord,
     index,
   };
@@ -18,35 +18,59 @@ export default function initBuffers(gl: WebGLRenderingContext): BufferInformatio
  * @param gl The WebGL context to use
  * @returns A WebGLBuffer containing the position data
  */
-function initPositionBuffer(gl: WebGLRenderingContext): WebGLBuffer {
+function initVertexBuffer(gl: WebGLRenderingContext): WebGLBuffer {
   // Create a buffer for the square's positions.
-  const positionBuffer = gl.createBuffer() as WebGLBuffer;
+  const vertexBuffer = gl.createBuffer() as WebGLBuffer;
 
-  // Select the positionBuffer as the one to apply buffer
+  // Select the vertexBuffer as the one to apply buffer
   // operations to from here out.
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 
-  const positions = [
+  // Array with (x, y z) coordinates for each vertex
+  const vertices = [
     // Front face
-    -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0,
+    -1.0, -1.0, 1.0,
+    1.0, -1.0, 1.0,
+    1.0, 1.0, 1.0,
+    -1.0, 1.0, 1.0,
+
     // Back face
-    -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, -1.0,
+    -1.0, -1.0, -1.0,
+    -1.0, 1.0, -1.0,
+    1.0, 1.0, -1.0,
+    1.0, -1.0, -1.0,
+
     // Top face
-    -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0,
+    -1.0, 1.0, -1.0,
+    -1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0,
+    1.0, 1.0, -1.0,
+
     // Bottom face
-    -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
+    -1.0, -1.0, -1.0,
+    1.0, -1.0, -1.0,
+    1.0, -1.0, 1.0,
+    -1.0, -1.0, 1.0,
+
     // Right face
-    1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0,
+    1.0, -1.0, -1.0,
+    1.0, 1.0, -1.0,
+    1.0, 1.0, 1.0,
+    1.0, -1.0, 1.0,
+
     // Left face
-    -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0,
+    -1.0, -1.0, -1.0,
+    -1.0, -1.0, 1.0,
+    -1.0, 1.0, 1.0,
+    -1.0, 1.0, -1.0,
   ];
 
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
-  return positionBuffer;
+  return vertexBuffer;
 }
 
 /**
@@ -98,34 +122,28 @@ function initIndexBuffer(gl: WebGLRenderingContext): WebGLBuffer {
 
   const indexes = [
     // front
-    0, 1,
-    2, 0,
-    2, 3,
+    0, 1, 2,
+    0, 2, 3,
 
     // back
-    4, 5,
-    6, 4,
-    6, 7,
+    4, 5, 6,
+    4, 6, 7,
 
     // top
-    8, 9,
-    10, 8,
-    10, 11,
+    8, 9, 10,
+    8, 10, 11,
 
     // bottom
-    12, 13,
-    14, 12,
-    14, 15,
+    12, 13, 14,
+    12, 14, 15,
 
     // right
-    16, 17,
-    18, 16,
-    18, 19,
+    16, 17, 18,
+    16, 18, 19,
 
     // left
-    20, 21,
-    22, 20,
-    22, 23,
+    20, 21, 22,
+    20, 22, 23,
   ];
 
   // Now send the element array to GL
